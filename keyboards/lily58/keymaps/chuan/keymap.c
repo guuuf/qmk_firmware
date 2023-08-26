@@ -219,14 +219,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+
 bool encoder_update_user(uint8_t index, bool clockwise) {
-    lastIndex = index;
-    if (clockwise) {
-        counter++;
-        tap_code(KC_PGDN);
-    } else {
-        counter--;
-        tap_code(KC_PGUP);
+    if (index == 0) { /* First encoder */
+        if (clockwise) {
+            tap_code(KC_PGDN);
+        } else {
+            tap_code(KC_PGUP);
+        }
+    } else if (index == 1) { /* Second encoder */
+        if (clockwise) {
+            rgb_matrix_increase_hue();
+        } else {
+            rgb_matrix_decrease_hue();
+        }
     }
-    return true;
+    return false;
 }
