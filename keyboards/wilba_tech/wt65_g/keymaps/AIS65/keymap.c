@@ -65,7 +65,7 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     NULL // Null terminate the array of overrides!
 };
 
-// Kay Combos // CTRL + ALT = LGUI
+// Key Combos // CTRL + ALT = LGUI
 const uint16_t PROGMEM lgui_combo[] = {KC_LCTL, KC_LALT, COMBO_END};
 combo_t key_combos[] = {
     COMBO(lgui_combo, KC_LGUI)
